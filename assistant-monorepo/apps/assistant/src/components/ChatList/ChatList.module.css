@@ -1,0 +1,279 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  min-width: 320px;
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.newButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.newButton:hover {
+  transform: scale(1.05);
+}
+
+.tree {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-2) var(--space-2) var(--space-4) var(--space-2);
+}
+
+.treeGroup {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+
+.treeGroup:hover {
+  background: rgba(107, 124, 255, 0.08);
+  color: var(--color-text);
+}
+
+.treeChildren {
+  padding-left: 18px;
+  padding-bottom: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.treeItem {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  border-radius: var(--radius-2);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.treeItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text);
+}
+
+.treeItem.active {
+  background: linear-gradient(135deg, rgba(107, 124, 255, 0.18) 0%, rgba(156, 107, 255, 0.18) 100%);
+  border-color: rgba(107, 124, 255, 0.35);
+  color: var(--color-text);
+}
+
+.treeTitle {
+  font-size: 12px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.treeLabel {
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.treeCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+}
+
+.sprintStatus {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.statusActive {
+  background: rgba(55, 214, 138, 0.18);
+  color: var(--color-success);
+}
+
+.statusPlanned {
+  background: rgba(107, 124, 255, 0.2);
+  color: var(--color-accent);
+}
+
+.statusDone {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-subtle);
+}
+
+.treeTime {
+  font-size: 10px;
+  color: var(--color-text-subtle);
+}
+
+.treePreview {
+  grid-column: 2 / span 3;
+  font-size: 10px;
+  color: var(--color-text-subtle);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 2px;
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-subtle);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+  color: var(--color-text-muted);
+}
+
+.folder,
+.file {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-warning);
+}
+
+.file {
+  color: var(--color-text-muted);
+}
+
+
+
+.prBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.prDraft {
+  background: rgba(107, 124, 255, 0.2);
+  color: var(--color-accent);
+}
+
+.prReady {
+  background: rgba(55, 214, 138, 0.2);
+  color: var(--color-success);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  color: var(--color-text-subtle);
+  text-align: center;
+}
+
+.empty p {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+}
+
+.emptyButton {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.emptyButton:hover {
+  transform: scale(1.02);
+}
+
+.emptySmall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: var(--color-text-subtle);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .treeGroup {
+    padding: var(--space-3);
+  }
+
+  .treeItem {
+    padding: var(--space-3);
+  }
+}
